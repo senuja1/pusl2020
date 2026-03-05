@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garfield Characters</title>
+    <style>
+        #characterImage {
+            transition: opacity 0.4s ease;
+        }
+
+        #characterImage.fade {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Select a Character</h2>
+
+<select id="characterSelect">
+    <option value="garfield">Garfield</option>
+    <option value="odie">Odie</option>
+    <option value="nermal">Nermal</option>
+    <option value="pooky">Pooky</option>
+    <option value="jon">Jon</option>
+</select>
+
+<br><br>
+
+<img id="characterImage" src="images/garfield.jpg" width="300">
+
+<script>
+
+const selectBox = document.getElementById("characterSelect");
+const image = document.getElementById("characterImage");
+
+selectBox.addEventListener("change", function () {
+
+    const character = selectBox.value;
+
+    image.classList.add("fade");
+
+    setTimeout(function () {
+        image.src = "images/" + character + ".jpg";
+        image.classList.remove("fade");
+    }, 400);
+
+});
+
+</script>
+
+</body>
+</html>
