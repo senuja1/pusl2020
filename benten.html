@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Garfield Characters</title>
-    <style>
-        #characterImage {
-            transition: opacity 0.4s ease;
-        }
-
-        #characterImage.fade {
-            opacity: 0;
-        }
-    </style>
+    <title>Ben 10 Character Selector</title>
 </head>
 
 <body>
 
-<h2>Select a Character</h2>
+<h2>Choose Your Favorite Ben 10 Character</h2>
+
 
 <select id="characterSelect">
-    <option value="garfield">Garfield</option>
-    <option value="odie">Odie</option>
-    <option value="nermal">Nermal</option>
-    <option value="pooky">Pooky</option>
-    <option value="jon">Jon</option>
+    <option value="ben">Ben</option>
+    <option value="heatblast">Heatblast</option>
+    <option value="fourarms">Four Arms</option>
 </select>
 
 <br><br>
 
-<img id="characterImage" src="images/garfield.jpg" width="300">
+
+<img id="characterImage" src="images/ben.jpg" width="300" alt="Ben 10 Character">
 
 <script>
 
-const selectBox = document.getElementById("characterSelect");
-const image = document.getElementById("characterImage");
+   
+    const characterDropdown = document.getElementById("characterSelect");
+    const characterImg = document.getElementById("characterImage");
 
-selectBox.addEventListener("change", function () {
+ 
+    characterDropdown.addEventListener("change", function () {
 
-    const character = selectBox.value;
+       
+        let selectedCharacter = characterDropdown.value;
 
-    image.classList.add("fade");
+       
+        characterImg.src = "images/" + selectedCharacter + ".jpg";
 
-    setTimeout(function () {
-        image.src = "images/" + character + ".jpg";
-        image.classList.remove("fade");
-    }, 400);
-
-});
+    });
 
 </script>
 
